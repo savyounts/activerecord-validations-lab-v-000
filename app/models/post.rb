@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   validates :category, inclusion: {in: %w(Fiction Non-Fiction)}
   validate :clickbaity
 
-  def clickbaity(post)
+  def clickbaity
     unless post.title.include?("Won't Believe" || "Secret" || "Top [number]" || "Guess")
       record.errors[:title] << 'not clickbaity enough'
     end
