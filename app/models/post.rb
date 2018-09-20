@@ -6,8 +6,8 @@ class Post < ActiveRecord::Base
   validate :clickbaity
 
   def clickbaity
-    unless post.title.include?("Won't Believe" || "Secret" || "Top [number]" || "Guess")
-      record.errors[:title] << 'not clickbaity enough'
+    unless title.include?("Won't Believe" || "Secret" || "Top [number]" || "Guess")
+      errors.add(:title, "isn't cool enough")
     end
   end
 end
